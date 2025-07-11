@@ -61,7 +61,7 @@ export class PracticeQuestionComponent implements AfterViewInit {
    }
 
   runSample() {
-  this.http.post<any>('http://localhost:3000/runSample', {
+  this.http.post<any>('https://online-code-compiler-phok.onrender.com/runSample', {
     language: this.language,
     code: this.editor.getValue(),
     input: this.problem.sampleInput,
@@ -70,7 +70,7 @@ export class PracticeQuestionComponent implements AfterViewInit {
 }
 
 submit() {
-  this.http.post<any>('http://localhost:3000/run', {
+  this.http.post<any>('https://online-code-compiler-phok.onrender.com/run', {
     language: this.language,
     code: this.editor.getValue(),
     testCases: this.problem.hiddenTestCases.map((t: any) => ({ ...t, visible: false }))
@@ -78,7 +78,7 @@ submit() {
 }
 
   runWithCustomInput() {
-    this.http.post<any>('http://localhost:3000/runCustom', {
+    this.http.post<any>('https://online-code-compiler-phok.onrender.com/runCustom', {
       code: this.editor.getValue(),
       language: this.language,
       input: this.input
