@@ -11,7 +11,7 @@ RUN npm install -g @angular/cli
 
 # Build frontend
 WORKDIR /app/frontend
-RUN npm install
+RUN npm install --legacy-peer-deps
 RUN ng build --configuration production
 
 
