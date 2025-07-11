@@ -1,0 +1,22 @@
+<div class="code-myself">
+  <header>
+    <button class="back-btn" routerLink="/">← Back to Home</button>
+    <h2>Code MySelf</h2>
+    <select [(ngModel)]="language" (change)="onLanguageChange()">
+      <option value="python">Python</option>
+      <option value="c">C</option>
+      <option value="java">Java</option>
+      <option value="go">Go</option>
+      <option value="js">JavaScript</option>
+    </select>
+  </header>
+
+  <div class="editor-container">
+    <div id="editor" class="editor"></div>
+    <aside>
+      <textarea [(ngModel)]="customInput" placeholder="Enter input..." rows="5"></textarea>
+      <button (click)="runCode()">Run Code ▶️</button>
+      <div class="output"><pre>{{ output }}</pre></div>
+    </aside>
+  </div>
+</div>

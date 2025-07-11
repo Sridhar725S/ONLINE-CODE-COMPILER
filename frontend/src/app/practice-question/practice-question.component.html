@@ -1,0 +1,40 @@
+<div class="split-container">
+  <div class="left-panel">
+    <button class="back-btn" routerLink="/practice">← Back to Problems</button>
+    <h2>{{ problem?.title }}</h2>
+    <p><b>Time Complexity:</b> {{ problem?.timeComplexity }}</p>
+    <p>{{ problem?.description }}</p>
+    <div><b>Sample Input:</b><br /><pre>{{ problem?.sampleInput }}</pre></div>
+    <div><b>Sample Output:</b><br /><pre>{{ problem?.sampleOutput }}</pre></div>
+  </div>
+
+  <div class="right-panel">
+    <button (click)="toggleFullScreen()">🔍 Full Screen</button>
+    <!-- Recording Button -->
+<button (click)="toggleRecording()">
+  {{ isRecording ? '⏹️ Stop Recording' : '🎥 Start Recording' }}
+</button>
+
+<!-- Blinking Indicator -->
+<div *ngIf="isRecording" class="recording-indicator">🔴 Recording...</div>
+
+     <select [(ngModel)]="language" (change)="onLanguageChange()">
+    <option value="python">Python</option>
+    <option value="c">C</option>
+    <option value="java">Java</option>
+    <option value="go">Go</option>
+    <option value="js">JavaScript</option>
+  </select>
+    <div id="editor" class="editor"></div>
+
+    <textarea [(ngModel)]="input" placeholder="Enter input here"></textarea>
+     <button (click)="runWithCustomInput()">🧪 Run with My Input</button>
+    <button (click)="runSample()">Run Sample</button>
+    <button (click)="submit()">Submit</button>
+
+    <div class="output-box">
+      <h3>Your Output:</h3>
+      <pre>{{ output }}</pre>
+    </div>
+  </div>
+</div>

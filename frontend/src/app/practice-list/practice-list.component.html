@@ -1,0 +1,15 @@
+<div class="practice-list-container">
+  <div class="practice-header">
+    <h2>🧠 Practice Problems</h2>
+    <button class="back-button" routerLink="/">🏠 Back to Home</button>
+  </div>
+
+  <div class="problems-grid">
+    <div class="problem-card" *ngFor="let p of problems">
+      <a [routerLink]="['/practice', p.id]">
+        <h3>{{ p.title }}</h3>
+        <p>Click to Solve 🚀</p>
+      </a>
+    </div>
+  </div>
+</div>

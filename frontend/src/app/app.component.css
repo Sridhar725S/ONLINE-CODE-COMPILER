@@ -1,0 +1,17 @@
+.container {
+  padding: 20px;
+  background: #1e1e1e;
+  color: white;
+  font-family: monospace;
+}
+.editor {
+  height: 300px;
+  border: 1px solid #444;
+  margin-top: 20px;
+}
+.output {
+  white-space: pre;
+  background: #111;
+  padding: 10px;
+  border: 1px solid #444;
+}
