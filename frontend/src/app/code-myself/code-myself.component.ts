@@ -59,7 +59,7 @@ export class CodeMyselfComponent implements AfterViewInit{
     return;
   }
 
-  this.http.post<any>('http://localhost:3000/runCustom', {
+  this.http.post<any>('https://online-code-compiler-phok.onrender.com/runCustom', {
     code: this.editor.getValue(),
     language: this.language,
     input: this.customInput
