@@ -89,15 +89,16 @@ app.post('/runCustom', (req, res) => {
   });
 });
 
-// This is the actual path to your Angular build output
-const frontendPath = path.join(__dirname, '../frontend/dist/frontend/browser');
+
+// This should match the Docker build output location
+const frontendPath = path.join(__dirname, 'public/frontend/browser');
 const indexHtml = path.join(frontendPath, 'index.html');
 
 if (fs.existsSync(indexHtml)) {
   console.log("📦 index.html exists? true");
-  app.use(express.static(frontendPath)); // serve static files
-  app.use('/assets', express.static(path.join(frontendPath, 'assets'))); // for assets
-  app.get(/(.*)/, (req, res) => res.sendFile(indexHtml)); // fallback for Angular routing
+  app.use(express.static(frontendPath));
+  app.use('/assets', express.static(path.join(frontendPath, 'assets')));
+  app.get(/(.*)/, (req, res) => res.sendFile(indexHtml)); // Angular routing fallback
 } else {
   console.warn('⚠️ Frontend not built yet! No index.html found.');
 }
